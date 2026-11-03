@@ -68,6 +68,16 @@ describe('catálogo del frontend', () => {
     assert.deepEqual(listRepositoryLanguages(withRepeatedLanguage), ['JavaScript', 'Python', 'TypeScript']);
   });
 
+  it('ordena los lenguajes con reglas explícitas y conserva acentos', () => {
+    const languagesWithAccents = [
+      { lenguaje: 'Útil' },
+      { lenguaje: 'Ágil' },
+      { lenguaje: 'Zig' },
+    ];
+
+    assert.deepEqual(listRepositoryLanguages(languagesWithAccents), ['Ágil', 'Útil', 'Zig']);
+  });
+
   it('acepta un payload válido de la API', () => {
     assert.deepEqual(readRepositoryPayload({ ok: true, data: repositories }), repositories);
   });
