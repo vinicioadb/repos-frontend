@@ -1,0 +1,10 @@
+node_modules
+coverage
+.scannerwork
+.git
+.github
+helm
+test
+dev-server.js
+package*.json
+*.log
